@@ -1,1 +1,2 @@
-web: newrelic-admin run-program gunicorn -b "0.0.0.0:$PORT" -w 2 trydjango19.wsgi
+web: daphne trydjango19.asgi:application --port $PORT --bind 0.0.0.0 -v3
+worker: python manage.py runworker -v3
